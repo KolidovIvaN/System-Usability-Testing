@@ -11,8 +11,8 @@ class Settings(BaseSettings):
     DB_NAME: str = Field(title="")
     DB_POOL_SIZE: int = Field(title="", default=5)
     DB_MAX_OVERFLOW: int = Field(title="", default=5)
-    DB_ADMIN_MAIL: str = None
-    DB_ADMIN_PASSWORD: str = None
+    PG_ADMIN_MAIL: str = None
+    PG_ADMIN_PASSWORD: str = None
 
     @property
     def get_url_database(self) -> str:
@@ -27,10 +27,8 @@ class Settings(BaseSettings):
     class Config:
         env_file = os.path.abspath(
             os.path.join(
-                os.path.dirname(__file__), "..", ".env"
+                os.path.dirname(__file__), "../..", ".env"
             )
         )
-        env_file_encoding = "utf-8"
 
 settings = Settings()
-print(settings)

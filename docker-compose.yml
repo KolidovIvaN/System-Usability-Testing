@@ -16,8 +16,8 @@ services:
     image: dpage/pgadmin4
     container_name: usability_pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${DB_ADMIN_MAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${DB_ADMIN_PASSWORD}
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_MAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASSWORD}
     ports:
       - "8080:80"
     depends_on:
