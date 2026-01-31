@@ -6,8 +6,16 @@ from api.v1.auth import router as auth_router
 
 from database.base import Base
 from database.engine import engine
-from models import *
 from utils.config import settings
+
+from models.users import Users
+from models.usability_tests import UsabilityTests
+from models.participants import Participant
+from models.gaze_point import GazePoint
+from models.emotions import Emotions
+from models.mouse_points import MousePoint
+from models.feedback import Feedback
+from models.voice_text import VoiceText
 
 
 @asynccontextmanager
