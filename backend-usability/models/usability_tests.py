@@ -15,6 +15,6 @@ class UsabilityTests(Base):
     participant_count = Column(Integer, default=0)
 
     owner_id = Column(Integer, ForeignKey("users.id"))
-    owner = relationship("User", back_populates="tests")
+    owner = relationship("Users", back_populates="tests")
 
     participant = relationship("Participant", back_populates="usability_tests")

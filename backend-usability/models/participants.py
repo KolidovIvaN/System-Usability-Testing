@@ -14,10 +14,10 @@ class Participant(Base):
     pc_skill_level = Column(Integer)
 
     usability_test_id = Column(Integer, ForeignKey("usability_tests.id"))
-    usability_tests = relationship("UsabilityTests", back_populates="participants")
+    usability_tests = relationship("UsabilityTests", back_populates="participant")
 
-    gaze_point = relationship("GazePoint", back_populates="participants")
-    emotions = relationship("Emotions", back_populates="participants")
-    voice = relationship("VoiceText", back_populates="participants")
-    mouse_point = relationship("MousePoint", back_populates="participants")
-    feedback = relationship("Feedback", uselist=False, back_populates="participants")
+    gaze_points = relationship("GazePoint", back_populates="participant")
+    emotions = relationship("Emotions", back_populates="participant")
+    voice = relationship("VoiceText", back_populates="participant") 
+    mouse_points = relationship("MousePoint", back_populates="participant")
+    feedback = relationship("Feedback", uselist=False, back_populates="participant")

@@ -7,6 +7,7 @@ from database.base import Base
 class VoiceText(Base):
     __tablename__ = "voice"
 
+    id = Column(Integer, primary_key=True, index=True)
     text = Column(Text)
     start_voice = Column(Float, nullable=True)
     end_voice = Column(Float, nullable=True)
