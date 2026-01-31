@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.responses import JSONResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from database.engine import get_db
@@ -18,14 +19,15 @@ async def register_user(
 ):
     try:
         user = await create_user(db=db, user_data=user_data)
-        return {"status": status.HTTP_201_CREATED,
-                "detail": f"User {user_data.email} was successfully created"}
-    
+        return JSONResponse(
+            status_code=status.HTTP_201_CREATED,
+            content=f"User {user_data.email} was successfully created"
+        )
+
     except Exception as e:
         print(f"ERROR: {e}")
         return HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=str(e)
         )
-
 
