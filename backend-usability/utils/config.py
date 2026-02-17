@@ -13,10 +13,15 @@ class Settings(BaseSettings):
     DB_MAX_OVERFLOW: int = Field(title="", default=5)
     PG_ADMIN_MAIL: str = None
     PG_ADMIN_PASSWORD: str = None
+    SECURITY_KEY: str = None
+    SECURITY_ALGORITHM: str = None
+    SECURITY_REFRESH_TOKEN: int = None
+    SECURITY_ACCESS_TOKEN: int = None
 
     @property
     def get_url_database(self) -> str:
         """Собирает асинхронный URL для подключения к PostgreSQL."""
+        return "sqlite+aiosqlite:///./test.db"
         return (
             f"postgresql+asyncpg://"
             f"{self.DB_USERNAME}:{self.DB_PASSWORD}@"
