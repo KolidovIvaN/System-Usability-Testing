@@ -3,3 +3,5 @@ ml_dev
 __pycache__/
 *.pyc
 *.pyo
+
+logs/
